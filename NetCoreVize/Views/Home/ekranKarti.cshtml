@@ -1,0 +1,83 @@
+
+
+@model List<NetCoreVize.Entities.ProductDesign>
+@{
+    Layout = Layout;
+}
+
+@{
+    ViewData["Title"] = "ekranKarti";
+}
+
+
+
+
+
+<link rel="stylesheet" href="~/css/ortakUrunStyle.css">
+
+<button onclick="buyukSirala()" type="button" class="btn btn-outline-success">Fiyata Göre Artan</button>
+<button onclick="kucukSirala()"type="button" class="btn btn-outline-danger" >Fiyata Göre Azalan</button>
+<button onclick="stokSirala()"type="button" class="btn btn-outline-warning">Stok Durumuna Göre</button>
+@* <div class="select">
+    <select name="slct" id="slct">
+        <option selected disabled>Sıralama Türü Seçiniz</option>
+        <option value="1" asp-action="check">Fiyata Göre Artan</option>
+        <option value="2">Fiyata Göre Azalan</option>
+        <option value="3">Stok Durumuna Göre</option>
+    </select> *@
+
+
+</div>
+
+
+
+<div class="table-users">
+    <div class="header">EKRAN KARTLARI</div>
+
+
+
+
+    <table cellspacing="0" id="myTable">
+
+        <tr>
+            
+            <th style="color: red;">FİYAT</th>
+            <th>Ürün Adı</th>
+            <th>Stok Sayısı</th>
+            <th width="230">Özellikler</th>
+            <th>Görsel</th>
+        </tr>
+
+
+
+        
+
+
+
+        @foreach (var item in Model)
+        {
+
+        
+
+            <tr>
+                <td>@item.productPrice</td>
+                <td>@item.productName</td>
+                <td>@item.productStock</td>
+                <td>@item.productFeatures</td>
+                <td><img src="@item.productİmageway" alt="" /></td>
+               
+                
+            </tr>
+
+
+           
+        }
+
+
+
+
+      
+    </table>
+</div>
+
+
